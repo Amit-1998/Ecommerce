@@ -69,6 +69,9 @@ module.exports.getAllProducts = catchAsyncErrors(async(req,res)=>{
     // return next(new ErrorHandler("This is my temp error",500));
     let resultPerPage = 4;
     const productsCount = await Product.countDocuments();
+    console.log("------------");
+    console.log(req.query);
+    
     const apiFeature = new ApiFeatures(Product.find(),req.query)
        .search()
        .filter()

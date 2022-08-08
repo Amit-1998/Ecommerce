@@ -72,7 +72,7 @@ function App() {
   },[]);
 
 //   website par right click se inspect nhi kar payenge
-  window.addEventListener("contextmenu", (e) => e.preventDefault());
+//   window.addEventListener("contextmenu", (e) => e.preventDefault());
 
   return (
       <Router>
