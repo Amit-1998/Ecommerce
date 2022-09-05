@@ -61,6 +61,7 @@ function App() {
   }
 
   useEffect(()=>{
+      // The Web Font Loader is able to load fonts from Google Fonts, Typekit, Fonts.com, and Fontdeck, as well as self-hosted web fonts.
       WebFont.load({
           google: {
              families: ["Roboto", "Droid Sans", "Chilanka"],
@@ -88,13 +89,14 @@ function App() {
                         
                         {/* Switch mein koi ek hi route render hota hai */}
                         <Switch>
-                            <Route exact path="/" component={Home} />
+                            <Route exact path="/" component={Home} /> 
                             <Route exact path="/product/:id" component={ ProductDetails } />
                             <Route exact path="/products" component={ Products } />
                             <Route path="/products/:keyword" component={ Products } />
                             <Route exact path="/search" component={ Search } />
                             <Route exact path="/contact" component={ Contact } />
                             <Route exact path="/about" component={ About } />
+                            {/* The home and about routes are public meaning anyone can access them, but the profile route requires users to be authenticated first. Therefore, you need to create a way to log in users.*/}
                             <ProtectedRoute exact path="/account" component={ Profile } />
                             <ProtectedRoute exact path="/me/update" component={ UpdateProfile } />
                             <ProtectedRoute exact path="/password/update" component={ UpdatePassword }/>
@@ -110,6 +112,7 @@ function App() {
                             <ProtectedRoute exact path="/order/confirm" component={ ConfirmOrder } />
                             <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
                                 
+                            {/* Role based access-control => protected routes*/}
                             <ProtectedRoute isAdmin={true} exact path="/admin/dashboard" component={Dashboard} />
                             <ProtectedRoute isAdmin={true} exact path="/admin/products" component={ProductList} />
                             <ProtectedRoute isAdmin={true} exact path="/admin/product/new" component={NewProduct} />

@@ -4,6 +4,7 @@ class ApiFeatures{
         this.queryStr = queryStr
     }
 
+    // this.query => is our Product(model)
     // api ka search feature
     search(){
         const keyword = this.queryStr.keyword
